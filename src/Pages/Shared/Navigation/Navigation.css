@@ -1,5 +1,14 @@
-
 .header-bg{
-    background-color: #F7F5EB;
+    background-color:#26262B;
 }
 
+.logOut-Btn{
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: white;
+    font-size: 16px;
+    padding: 0px;
+}
+.navbar-nav a{
+    color: white;
+}

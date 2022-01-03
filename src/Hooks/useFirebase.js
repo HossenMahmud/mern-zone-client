@@ -1,17 +1,16 @@
 import initializeAuthentication from '../Firebase/firebase.init';
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from 'react';
 initializeAuthentication();
 
 
 const useFirebase = () => {
+    const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [admin, setAdmin] = useState(false);
-
-
 
     // Register Email and Password
     const registerUser = (email, password, name, navigate) => {
@@ -56,6 +55,20 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
 
     }
+    // Login with Google
+    const signInWithGoogle = (location, navigate) => {
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                saveUser(user.email, user.displayName, 'PUT');
+                setError('');
+                const destination = location?.state?.from || '/';
+                navigate(destination);
+            }).catch((error) => {
+                setError(error.message);
+            }).finally(() => setIsLoading(false));
+    }
 
     // observer user state 
     useEffect(() => {
@@ -84,7 +97,7 @@ const useFirebase = () => {
     // save user into Database
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://pure-sea-65908.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -96,11 +109,10 @@ const useFirebase = () => {
 
     // Check user is Admin
     useEffect(() => {
-        fetch(`https://pure-sea-65908.herokuapp.com/users/${user?.email}`)
+        fetch(`http://localhost:5000/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
             .catch((e) => {
-
             })
 
     }, [user?.email])
@@ -108,7 +120,7 @@ const useFirebase = () => {
 
 
     return {
-        registerUser, error, loginUser, logOUt, user, isLoading, admin
+        registerUser, error, loginUser, signInWithGoogle, logOUt, user, isLoading, admin
     }
 };
 
