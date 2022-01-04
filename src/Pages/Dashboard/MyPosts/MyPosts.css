@@ -1,0 +1,12 @@
+.comment{
+    color: green;
+    cursor: pointer;
+}
+.love{
+    color: red;
+    cursor: pointer;
+}
+.edit{
+    color:yellow;
+    cursor: pointer;
+}

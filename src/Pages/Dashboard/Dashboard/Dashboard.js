@@ -22,21 +22,15 @@ const Dashboard = () => {
                         <Link className='ms-3' to='/'>Home</Link>
                         {
                             admin && <>
-                                {/* <Link className='ms-3' to='add-product'>Add-new-Food</Link>
-                                <Link className='ms-3' to='manage-product'>Manage-Products</Link>
-                                <Link className='ms-3' to='all-orders'>All-Orders</Link>
-                                <Link className='ms-3' to='all-reviews'>All-Reviews</Link> */}
-
                                 <Link className='ms-3' to='make-admin'>Make-Admin</Link>
+                                <Link className='ms-3' to='all-post'>All-Blogs</Link>
                             </>
                         }
-                        {/* {
+                        {
                             !admin && <>
-                                <Link className='ms-3' to='my-order'>My-Order</Link>
-                                <Link className='ms-3' to='add-review'>Add-Review</Link>
-                                <Link className='ms-3' to='payment'>Orders-Pay</Link>
+                                <Link className='ms-3' to='my-posts'>My-Order</Link>
                             </>
-                        } */}
+                        }
 
                         <button onClick={logOUt} className='logoutBtn ms-3'>Logout</button>
                     </div>
