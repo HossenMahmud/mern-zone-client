@@ -13,10 +13,10 @@ Live Site[MERN_ZONE](https://mern-zone.web.app/)
 *  Admin can create a new admin.
 
 ## Using Technology
-1.Firebase Authentication
-2.React.js
-3.React Router Dom @6
-4.Bootstrap
-5.Node, Express
-6.MongoDb
-7.Rich TextEditor (Jodit-React)
+*  Firebase Authentication
+*  React.js
+*  React Router Dom @6
+*  Bootstrap
+*  Node, Express
+*  MongoDb
+*  Rich TextEditor (Jodit-React)
