@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
-import logo from '../../../images/logo.png';
 import './Navigation.css';
 const Navigation = () => {
   const { user, logOUt } = useAuth();
@@ -12,7 +11,7 @@ const Navigation = () => {
           <div className="container">
             <div className="d-flex">
               <div className="header-logo">
-                <img src={logo} className='img-fluid w-50' alt="" />
+                <h3 className='text-white'> <span style={{ 'color': 'green' }}>MERN</span>-ZONE</h3>
               </div>
             </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation nava-icon">

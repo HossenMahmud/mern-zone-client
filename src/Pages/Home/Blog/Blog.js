@@ -10,7 +10,7 @@ const Blog = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/posts')
+        fetch('https://shrouded-tundra-76213.herokuapp.com/posts')
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, []);

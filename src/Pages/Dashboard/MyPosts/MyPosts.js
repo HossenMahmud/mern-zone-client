@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import './MyPosts.css';
 
@@ -7,7 +6,7 @@ const MyPosts = () => {
     const { user } = useAuth();
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs/${user.email}`)
+        fetch(`https://shrouded-tundra-76213.herokuapp.com/blogs/${user.email}`)
             .then(res => res.json())
             .then(data => setBlogs(data))
     });
@@ -16,7 +15,7 @@ const MyPosts = () => {
     const handleDelete = (id) => {
         let conform = window.confirm('Are You Sure Delete Item?');
         if (conform) {
-            fetch(`http://localhost:5000/deleteBlog/${id}`, {
+            fetch(`https://shrouded-tundra-76213.herokuapp.com/deleteBlog/${id}`, {
                 method: "DELETE",
                 headers: { "Content-type": "application/json" },
             })

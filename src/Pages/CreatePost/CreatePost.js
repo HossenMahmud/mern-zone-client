@@ -46,7 +46,7 @@ const CreatePost = () => {
         const post = {
             ...allPostData,
         }
-        fetch("http://localhost:5000/addPost", {
+        fetch("https://shrouded-tundra-76213.herokuapp.com/addPost", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(post),

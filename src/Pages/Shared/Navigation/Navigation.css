@@ -1,6 +1,9 @@
 .header-bg{
     background-color:#26262B;
 }
+.header-logo h3{
+    font-family: fantasy;
+}
 
 .logOut-Btn{
     background-color: transparent;

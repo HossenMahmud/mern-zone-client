@@ -72,10 +72,11 @@ const useFirebase = () => {
 
     // observer user state 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user);
-            } else {
+            }
+            else {
                 setUser('')
             }
         });
@@ -97,7 +98,7 @@ const useFirebase = () => {
     // save user into Database
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://shrouded-tundra-76213.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -109,7 +110,7 @@ const useFirebase = () => {
 
     // Check user is Admin
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://shrouded-tundra-76213.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
             .catch((e) => {

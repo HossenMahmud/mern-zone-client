@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useEffect, useState } from 'react';
 
 const AllPosts = () => {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/posts')
+        fetch('https://shrouded-tundra-76213.herokuapp.com/posts')
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, []);
@@ -13,7 +12,7 @@ const AllPosts = () => {
     const handleDelete = (id) => {
         let conform = window.confirm('Are You Sure Delete Item?');
         if (conform) {
-            fetch(`http://localhost:5000/deleteBlog/${id}`, {
+            fetch(`https://shrouded-tundra-76213.herokuapp.com/deleteBlog/${id}`, {
                 method: "DELETE",
                 headers: { "Content-type": "application/json" },
             })

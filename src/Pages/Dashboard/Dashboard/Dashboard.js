@@ -17,7 +17,7 @@ const Dashboard = () => {
                 {/* Sidebar*/}
                 <div className="bg-white" id="sidebar-wrapper">
                     <div className="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
-                        className="fas fa-user-secret me-2"></i>Broccoli</div>
+                        className="fas fa-user-secret me-2"></i>MERN-ZONE</div>
                     <div className="list-group list-group-flush my-3 text-start">
                         <Link className='ms-3' to='/'>Home</Link>
                         {
@@ -28,7 +28,7 @@ const Dashboard = () => {
                         }
                         {
                             !admin && <>
-                                <Link className='ms-3' to='my-posts'>My-Order</Link>
+                                <Link className='ms-3' to='my-posts'>My-Blog</Link>
                             </>
                         }
 
